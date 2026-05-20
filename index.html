@@ -1,0 +1,277 @@
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { GraduationCap, Building2, School, ShieldCheck, BriefcaseBusiness, Users, ArrowRight, CheckCircle2, BarChart3, Search, Menu, X, Sparkles } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+export default function WahiLandingPage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const stats = [
+    { label: "Verified Students", value: "10K+" },
+    { label: "Partner Employers", value: "500+" },
+    { label: "Successful Matches", value: "2,500+" },
+    { label: "Institutions", value: "80+" },
+  ];
+
+  const audiences = [
+    {
+      icon: GraduationCap,
+      title: "For Students",
+      text: "Create a verified profile, upload your attachment letter, showcase your skills, and get matched to real opportunities.",
+    },
+    {
+      icon: Building2,
+      title: "For Employers",
+      text: "Access verified student talent, post attachment and internship openings, and manage applications faster.",
+    },
+    {
+      icon: School,
+      title: "For Institutions",
+      text: "Track placements, monitor student progress, and generate attachment reports from one trusted dashboard.",
+    },
+  ];
+
+  const features = [
+    "Verified student and employer profiles",
+    "Smart matching by course, skill, location and availability",
+    "Attachment and internship tracking",
+    "Supervisor feedback and completion reports",
+    "Institution dashboard and analytics",
+    "Workforce readiness insights",
+  ];
+
+  return (
+    <div className="min-h-screen bg-[#F8FAF4] text-[#062F2B]">
+      <header className="sticky top-0 z-50 border-b border-[#DDE8D4] bg-[#F8FAF4]/90 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 md:px-8">
+          <div className="flex items-center gap-3">
+            <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#063B35] text-xl font-black text-[#FDBA18] shadow-lg">W</div>
+            <div>
+              <p className="text-2xl font-black tracking-tight">WAHI</p>
+              <p className="-mt-1 text-xs font-medium text-[#55736A]">Work Attachment • Hiring • Internship</p>
+            </div>
+          </div>
+
+          <nav className="hidden items-center gap-8 text-sm font-semibold text-[#31524B] md:flex">
+            <a href="#how">How it works</a>
+            <a href="#users">Users</a>
+            <a href="#features">Features</a>
+            <a href="#impact">Impact</a>
+          </nav>
+
+          <div className="hidden gap-3 md:flex">
+            <Button variant="outline" className="rounded-full border-[#063B35] text-[#063B35]">Sign in</Button>
+            <Button className="rounded-full bg-[#FDBA18] px-6 font-bold text-[#062F2B] hover:bg-[#EAA913]">Join WAHI</Button>
+          </div>
+
+          <button onClick={() => setMenuOpen(!menuOpen)} className="md:hidden">
+            {menuOpen ? <X /> : <Menu />}
+          </button>
+        </div>
+
+        {menuOpen && (
+          <div className="border-t border-[#DDE8D4] px-5 py-4 md:hidden">
+            <div className="grid gap-4 text-sm font-semibold text-[#31524B]">
+              <a href="#how">How it works</a>
+              <a href="#users">Users</a>
+              <a href="#features">Features</a>
+              <a href="#impact">Impact</a>
+              <Button className="mt-2 rounded-full bg-[#FDBA18] font-bold text-[#062F2B]">Join WAHI</Button>
+            </div>
+          </div>
+        )}
+      </header>
+
+      <section className="relative overflow-hidden px-5 py-20 md:px-8 md:py-28">
+        <div className="absolute right-[-10%] top-10 h-96 w-96 rounded-full bg-[#FDBA18]/20 blur-3xl" />
+        <div className="absolute left-[-10%] bottom-0 h-96 w-96 rounded-full bg-[#0C7C59]/20 blur-3xl" />
+
+        <div className="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2">
+          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#C7D9C0] bg-white px-4 py-2 text-sm font-bold text-[#0C7C59] shadow-sm">
+              <Sparkles size={16} /> Bridging campus to career
+            </div>
+            <h1 className="max-w-3xl text-5xl font-black leading-[0.95] tracking-tight md:text-7xl">
+              Get matched to real work opportunities.
+            </h1>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-[#47655E]">
+              WAHI connects students and graduates to verified attachment, internship, apprenticeship and hiring opportunities from trusted employers and institutions.
+            </p>
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+              <Button className="h-14 rounded-full bg-[#063B35] px-8 text-base font-bold text-white hover:bg-[#052B27]">
+                I’m a Student <ArrowRight className="ml-2" size={18} />
+              </Button>
+              <Button variant="outline" className="h-14 rounded-full border-[#063B35] px-8 text-base font-bold text-[#063B35]">
+                I’m an Employer
+              </Button>
+            </div>
+            <p className="mt-5 text-sm font-semibold text-[#6C817B]">WAHI means “get” in Sheng. Get opportunity. Get experience. Get ahead.</p>
+          </motion.div>
+
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.1 }} className="relative">
+            <div className="rounded-[2rem] bg-[#063B35] p-5 shadow-2xl">
+              <div className="rounded-[1.5rem] bg-white p-5">
+                <div className="mb-5 flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-bold text-[#0C7C59]">Match Dashboard</p>
+                    <h3 className="text-2xl font-black">Today’s Top Matches</h3>
+                  </div>
+                  <div className="rounded-full bg-[#FDBA18] px-4 py-2 text-sm font-black">Live</div>
+                </div>
+
+                <div className="space-y-4">
+                  {[
+                    ["ICT Attachment", "Software company • Westlands", "92% match"],
+                    ["Engineering Intern", "Energy firm • Industrial Area", "87% match"],
+                    ["Business Admin", "NGO • Kilimani", "81% match"],
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-center justify-between rounded-2xl border border-[#E2EBDC] bg-[#F8FAF4] p-4">
+                      <div>
+                        <p className="font-black">{item[0]}</p>
+                        <p className="text-sm text-[#60766F]">{item[1]}</p>
+                      </div>
+                      <span className="rounded-full bg-[#DFF3E5] px-3 py-1 text-sm font-black text-[#0C7C59]">{item[2]}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 grid grid-cols-2 gap-4">
+                  <div className="rounded-2xl bg-[#063B35] p-5 text-white">
+                    <BarChart3 className="mb-3 text-[#FDBA18]" />
+                    <p className="text-3xl font-black">2,500+</p>
+                    <p className="text-sm text-white/70">Successful matches</p>
+                  </div>
+                  <div className="rounded-2xl bg-[#FDBA18] p-5 text-[#062F2B]">
+                    <ShieldCheck className="mb-3" />
+                    <p className="text-3xl font-black">Verified</p>
+                    <p className="text-sm font-semibold text-[#4D4215]">Students & employers</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="bg-[#063B35] px-5 py-8 text-white md:px-8">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 md:grid-cols-4">
+          {stats.map((stat) => (
+            <div key={stat.label}>
+              <p className="text-3xl font-black text-[#FDBA18] md:text-4xl">{stat.value}</p>
+              <p className="mt-1 text-sm text-white/70">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="users" className="px-5 py-20 md:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-2xl">
+            <p className="mb-3 text-sm font-black uppercase tracking-widest text-[#0C7C59]">One platform, three users</p>
+            <h2 className="text-4xl font-black tracking-tight md:text-5xl">Built for the full campus-to-industry pipeline.</h2>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-3">
+            {audiences.map((item) => (
+              <Card key={item.title} className="rounded-[2rem] border-[#DDE8D4] bg-white shadow-sm">
+                <CardContent className="p-7">
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#063B35] text-[#FDBA18]">
+                    <item.icon size={28} />
+                  </div>
+                  <h3 className="text-2xl font-black">{item.title}</h3>
+                  <p className="mt-3 leading-7 text-[#60766F]">{item.text}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="how" className="bg-white px-5 py-20 md:px-8">
+        <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-2">
+          <div>
+            <p className="mb-3 text-sm font-black uppercase tracking-widest text-[#0C7C59]">How it works</p>
+            <h2 className="text-4xl font-black tracking-tight md:text-5xl">Simple enough for students. Powerful enough for institutions.</h2>
+            <p className="mt-5 text-lg leading-8 text-[#60766F]">WAHI starts with verification, then matches students to opportunities using skills, course, location, availability and employer requirements.</p>
+          </div>
+          <div className="grid gap-4">
+            {[
+              [Search, "Create a verified profile", "Students add course, skills, documents and availability."],
+              [BriefcaseBusiness, "Employers post opportunities", "Companies define role type, requirements, location and intake size."],
+              [Users, "WAHI matches talent", "The system ranks suitable students and supports applications."],
+              [CheckCircle2, "Track progress", "Institutions and employers monitor performance, reports and completion."],
+            ].map(([Icon, title, text], index) => (
+              <div key={String(title)} className="flex gap-5 rounded-3xl border border-[#DDE8D4] bg-[#F8FAF4] p-5">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#FDBA18] font-black text-[#062F2B]">{index + 1}</div>
+                <div>
+                  <div className="mb-2 flex items-center gap-2">
+                    <Icon size={20} className="text-[#0C7C59]" />
+                    <h3 className="font-black">{title}</h3>
+                  </div>
+                  <p className="text-[#60766F]">{text}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="features" className="px-5 py-20 md:px-8">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 md:grid-cols-2">
+          <div className="rounded-[2rem] bg-[#063B35] p-8 text-white shadow-xl">
+            <p className="text-sm font-black uppercase tracking-widest text-[#FDBA18]">WAHI acronym</p>
+            <h2 className="mt-3 text-5xl font-black tracking-tight">Work. Attachment. Hiring. Internship.</h2>
+            <p className="mt-5 leading-8 text-white/75">A trusted pipeline for students looking to get real experience and employers looking to get verified emerging talent.</p>
+          </div>
+          <div>
+            <p className="mb-3 text-sm font-black uppercase tracking-widest text-[#0C7C59]">Core features</p>
+            <h2 className="text-4xl font-black tracking-tight">Not a job board. A matching and verification engine.</h2>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {features.map((feature) => (
+                <div key={feature} className="flex gap-3 rounded-2xl bg-white p-4 shadow-sm">
+                  <CheckCircle2 className="mt-1 shrink-0 text-[#0C7C59]" size={20} />
+                  <p className="font-semibold text-[#31524B]">{feature}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="impact" className="bg-[#FDBA18] px-5 py-20 text-[#062F2B] md:px-8">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 md:grid-cols-[1.2fr_0.8fr]">
+          <div>
+            <h2 className="text-4xl font-black tracking-tight md:text-6xl">The success metric is simple: more successful matches.</h2>
+            <p className="mt-5 max-w-2xl text-lg font-medium leading-8 text-[#4D4215]">WAHI measures impact by the number of students placed, completed attachments, employer satisfaction, repeat hiring, and internship-to-job conversion.</p>
+          </div>
+          <Card className="rounded-[2rem] border-0 bg-[#063B35] text-white shadow-xl">
+            <CardContent className="p-8">
+              <p className="text-sm font-black uppercase tracking-widest text-[#FDBA18]">Launch goal</p>
+              <p className="mt-4 text-5xl font-black">1,000</p>
+              <p className="mt-2 text-xl font-bold">verified matches in Nairobi</p>
+              <p className="mt-4 leading-7 text-white/70">Start with Nairobi campuses, TVETs and SMEs. Prove the model, then expand county by county.</p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section className="px-5 py-20 md:px-8">
+        <div className="mx-auto max-w-5xl rounded-[2rem] bg-[#063B35] p-8 text-center text-white shadow-2xl md:p-14">
+          <h2 className="text-4xl font-black tracking-tight md:text-5xl">Get opportunity. Get experience. Get ahead.</h2>
+          <p className="mx-auto mt-5 max-w-2xl leading-8 text-white/75">Join WAHI as a student, employer or institution and help build a stronger, more employable generation.</p>
+          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+            <Button className="h-14 rounded-full bg-[#FDBA18] px-8 text-base font-black text-[#062F2B] hover:bg-[#EAA913]">Join the waitlist</Button>
+            <Button variant="outline" className="h-14 rounded-full border-white px-8 text-base font-black text-white hover:bg-white hover:text-[#063B35]">Partner with WAHI</Button>
+          </div>
+        </div>
+      </section>
+
+      <footer className="border-t border-[#DDE8D4] px-5 py-8 md:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-4 text-sm text-[#60766F] md:flex-row">
+          <p className="font-bold text-[#063B35]">WAHI — Work Attachment, Hiring & Internship</p>
+          <p>Built for students, employers, institutions and the future of work.</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
